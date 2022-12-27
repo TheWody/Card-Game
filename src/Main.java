@@ -37,7 +37,6 @@ public class Main {
     }
 
     public static void main(String[] args) throws Exception{
-        game.PrintLeaderboard();
         Scanner sc = new Scanner(System.in);
         boolean isStartGame = false;
         while(gameGoingOn)
