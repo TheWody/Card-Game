@@ -23,7 +23,7 @@ public class Game {
     }
 
     public void ShuffleDeck() {
-        System.out.println("Deste karıştırılıyor.");
+        System.out.println("Shuffling deck..");
         for (int j = 0; j < 100; j++) {
             int i = r.nextInt(deck.length);
             int k = r.nextInt(deck.length);
@@ -34,7 +34,7 @@ public class Game {
     }
 
     public void CutDeck() {
-        System.out.println("Deste kesiliyor.");
+        System.out.println("Cutting deck..");
         int k = r.nextInt(1, 51);
         int counter1 = 0;
         Card[] newDeck = new Card[deck.length];
@@ -120,7 +120,7 @@ public class Game {
         int thrownCardIndex = r.nextInt(0, computer.GetHand().length);
         for (int i = 0; i < computer.GetHand().length; i++) {
             if (ground.length > 0) {
-                if (ground[0].getRank() == computer.GetHand()[i].getRank()) {
+                if (ground[0].getRank() == computer.GetHand()[i].getRank() || computer.GetHand()[i].getRank() == "Jacks") {
                     AddGround(computer.GetHand()[i], false);
                     isCardThrown = true;
                     thrownCardIndex = i;
@@ -178,15 +178,15 @@ public class Game {
 
     public void WriteInfos() {
         System.out.println("------------------------------");
-        String groundInfo = "Yerdeki kart: ";
+        String groundInfo = "Last thrown card: ";
         if (ground.length > 0) {
             groundInfo += ground[0].getName();
         } else {
-            groundInfo += "kart yok";
+            groundInfo += "no cards left";
         }
-        System.out.println(groundInfo + " | Yerdeki kart sayısı: " + ground.length);
-        String computerHand = "bilgisayar: ";
-        String playerHand = "oyuncu: ";
+        System.out.println(groundInfo + " | Amount of cards on the ground: " + ground.length);
+        String computerHand = "Computer: ";
+        String playerHand = "Player: ";
         for (int i = 0; i < computer.GetHand().length; i++) {
             computerHand += (i + 1) + ".card:" + computer.GetHand()[i].getName() + " | ";
         }
