@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +10,7 @@ public class Main {
         {
             try {
                 game.WriteInfos();
-                System.out.println("Atmak istediğiniz kartın numarasını giriniz. (9:Exit)");
+                System.out.println("Enter number of the card you want to throw. (9:Exit)");
                 String line = sc.nextLine();
                 int input = Integer.parseInt(line);
                 if(input>0 && input<5)
@@ -21,17 +20,19 @@ public class Main {
                 else {
                     switch (input) {
                         case 9:
-                            System.out.println("Oyun bitti");
+                            System.out.println("Game Over");
                             gameGoingOn = false;
                             break;
                         default:
-                            System.out.println("Lütfen geçerli bir değer giriniz.");
+                            System.out.println("---------------------------------");
+                            System.out.println("Please Enter A Valid Number");
                     }
                 }
             }
             catch (Exception e)
             {
-                System.out.println("Lütfen geçerli bir değer giriniz.");
+                System.out.println("---------------------------------");
+                System.out.println("Please Enter A Valid Number");
             }
         }
     }
@@ -42,7 +43,7 @@ public class Main {
         while(gameGoingOn)
         {
            try {
-               System.out.println("5: Desteyi karıştır. | 6: Desteyi kes. | 7: Oyunu başlat. | 9: Çıkış");
+               System.out.println("5: Shuffle The Deck. | 6: Cut The Deck. | 7: Start Game. | 8: Print Leaderboard | 9: Exit");
                String line = sc.nextLine();
                int input = Integer.parseInt(line);
                switch (input) {
@@ -58,17 +59,20 @@ public class Main {
                        GameLoop();
                        game = new Game();
                        break;
+                   case 8:
+                       game.PrintLeaderboard();
+                       break;
                    case 9:
-                       System.out.println("Oyun bitti");
+                       System.out.println("Game Over.");
                        gameGoingOn = false;
                        break;
                    default:
-                       System.out.println("Lütfen geçerli bir değer giriniz.");
+                       System.out.println("Please Enter A Valid Number.");
                }
            }
            catch (Exception e)
            {
-               System.out.println("Lütfen geçerli bir değer giriniz.");
+               System.out.println("Please Enter A Valid Number.");
            }
         }
     }

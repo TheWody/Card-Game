@@ -1,5 +1,4 @@
 public class Player {
-
     private Card[] hand = new Card[4];
     int score =0;
     public void SetCard(Card a,int i)
