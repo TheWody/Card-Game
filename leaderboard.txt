@@ -5,6 +5,6 @@ Kaan,70
 OKAN,68
 Mert,60
 Samet,50
+player10,41
 Can,40
-Efe,30
-Okan,20
+Okan1,29
